@@ -1,0 +1,28 @@
+[Unit]
+Description=Clawdbot Server (EC2)
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/opt/clawdbot
+
+# Python environment
+Environment="PATH=/opt/clawdbot/venv/bin"
+Environment="PYTHONPATH=/opt/clawdbot"
+
+# Backend Configuration - UPDATE THESE
+Environment="BACKEND_URL=http://localhost:8000"
+# Environment="BACKEND_API_KEY=your-secret-key"
+
+# Server Configuration
+Environment="CLAWDBOT_HOST=0.0.0.0"
+Environment="CLAWDBOT_PORT=8080"
+Environment="LOG_LEVEL=INFO"
+
+ExecStart=/opt/clawdbot/venv/bin/python /opt/clawdbot/openclaw/clawdbot_server.py
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,17 @@
+[Unit]
+Description=OpenClaw Gateway for LPL Transition OS
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+Environment="PATH=/usr/bin:/usr/local/bin"
+Environment="BACKEND_URL=http://CHANGE_ME:8000"
+Environment="NODE_ENV=production"
+WorkingDirectory=/home/ubuntu
+ExecStart=/usr/bin/openclaw gateway --port 18789
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

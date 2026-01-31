@@ -1,0 +1,20 @@
+{
+  "agent": {
+    "model": "anthropic/claude-opus-4-5",
+    "name": "Clawdbot",
+    "description": "AI assistant for LPL Transition OS"
+  },
+  "gateway": {
+    "port": 18789,
+    "bind": "0.0.0.0",
+    "verbose": false
+  },
+  "channels": {
+    "webchat": {
+      "enabled": true
+    }
+  },
+  "security": {
+    "dmPolicy": "pairing"
+  }
+}

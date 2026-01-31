@@ -1,0 +1,33 @@
+{
+  "agent": {
+    "name": "Clawdbot",
+    "description": "AI assistant for LPL Transition OS"
+  },
+  "models": {
+    "default": "anthropic/claude-sonnet-4",
+    "fast": "anthropic/claude-haiku",
+    "powerful": "anthropic/claude-opus-4-5",
+    "gpt4": "openai/gpt-4o",
+    "gpt4-mini": "openai/gpt-4o-mini",
+    "local": "ollama/llama3.2"
+  },
+  "gateway": {
+    "port": 18789,
+    "bind": "0.0.0.0",
+    "verbose": false
+  },
+  "channels": {
+    "webchat": {
+      "enabled": true
+    }
+  },
+  "skills": {
+    "enabled": ["transition-os"]
+  },
+  "tools": {
+    "allowed": ["backend_client"]
+  },
+  "security": {
+    "dmPolicy": "pairing"
+  }
+}
