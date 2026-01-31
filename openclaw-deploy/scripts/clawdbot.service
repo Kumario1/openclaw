@@ -1,6 +1,6 @@
 [Unit]
 Description=Clawdbot API Server (EC2)
-After=network.target openclaw.service
+After=network.target
 
 [Service]
 Type=simple
@@ -9,10 +9,10 @@ WorkingDirectory=/opt/clawdbot
 
 # Python environment
 Environment="PATH=/opt/clawdbot/venv/bin"
-Environment="PYTHONPATH=/opt/clawdbot"
+Environment="PYTHONPATH=/opt/clawdbot:/home/ubuntu/openclaw-deploy"
 
-# Backend Configuration - UPDATE THESE
-Environment="BACKEND_URL=http://CHANGE_ME_BACKEND_IP:8000"
+# Backend Configuration
+Environment="BACKEND_URL=http://54.221.139.68:8000"
 # Environment="BACKEND_API_KEY=your-secret-key"
 
 # Server Configuration
