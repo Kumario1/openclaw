@@ -44,7 +44,10 @@ sed -i "s|\${BACKEND_URL}|$BACKEND_URL|g" ~/.openclaw/workspace/AGENTS.md
 echo "⚙️  Setting up backend client..."
 cp src/backend_client.py ~/openclaw-tools/
 chmod +x ~/openclaw-tools/backend_client.py
-pip3 install httpx
+
+# Install httpx (Ubuntu 24.04 compatible)
+echo "📦 Installing Python httpx..."
+apt-get install -y python3-httpx 2>/dev/null || pip3 install httpx --break-system-packages 2>/dev/null || pip3 install httpx
 
 # Create skill definition for transition-os
 cat > ~/.openclaw/workspace/skills/transition-os/SKILL.md << 'EOF'
